@@ -1,1 +1,5 @@
-# ticket_system
+# Ticket System
+
+##Authors
+
+Olivier Caron 
