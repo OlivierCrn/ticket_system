@@ -30,7 +30,7 @@ if(in_array($_POST['nickname'], $listarray))
     }
 $comparaison->closeCursor();
 
-//Verify if the email address is compliant
+//Verify if the email adress is compliant
 if(!preg_match('"#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-zA-Z]{2,4}$#', $_POST['email']))
 {
     $_SESSION['errorMessage'] = "Wrong e-mail format";
