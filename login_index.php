@@ -1,6 +1,7 @@
 <?php
 
-session_start(); 
+session_start();
+$_SESSION['loginErrorMessage']= NULL; 
 
 ?>
 <!DOCTYPE html>
@@ -12,8 +13,8 @@ session_start();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #E9ECEF;" >
-<a class="navbar-brand mx-auto" href="#">CRNO - Ticket system</a>
+<nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #c3cfe5;" >
+<a class="navbar-brand mx-auto" href="#">CRNO - Ticket system - Login</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,7 +25,7 @@ session_start();
         <a class="nav-link" href="#">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/register_index.php">Register</a>
+        <a class="nav-link" href="ct/register_index.php">Register</a>
       </li>
     </ul>
   </div>

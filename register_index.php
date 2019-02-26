@@ -1,6 +1,7 @@
 <?php
 
 session_start(); 
+$_SESSION['errorMessage']= NULL; 
 
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #E9ECEF;" >
+<nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #c3cfe5;" >
 <a class="navbar-brand mx-auto" href="#">CRNO - Ticket system</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

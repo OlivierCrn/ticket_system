@@ -1,12 +1,12 @@
 <?php
 session_start(); 
 
-$_SESSION['errorMessage'] = NULL;
+$_SESSION['loginErrorMessage'] = NULL;
 
 // Log in  the database.
 try
 {
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'olivier', 'toor', 
+    $bdd = new PDO('mysql:host=localhost;dbname=auth;charset=utf8', 'olivier', 'toor', 
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(Exception $e)
@@ -18,7 +18,7 @@ catch(Exception $e)
 // Verify if the password is compliant
 if(!preg_match("#^[a-zA-Z0-9!?.]{8,}$#", $_POST['password_first']))
 {
-    $_SESSION['errorMessage'] = "Bad Nickname or Password, please try again.";
+    $_SESSION['loginErrorMessage'] = "Bad Nickname or Password, please try again.";
     header('location:login_index.php');
     exit();
 }
@@ -28,7 +28,7 @@ $pass_hache = $_POST['password_first'];
 if(!preg_match("#^[a-zA-Z0-9]{3,}$#", $_POST['nickname']) === 0 )
     {
         
-        $_SESSION['errorMessage'] = "Bad Nickname or Password, please try again.";
+        $_SESSION['loginloginErrorMessage'] = "Bad Nickname or Password, please try again.";
         header('location:login_index.php');
         exit();
     }
@@ -42,13 +42,17 @@ if(in_array($_POST['nickname'], $listarray))
     {
         $goodNickname = $listarray;
     }
-$nickname=$goodNickname[0];
 $comparaison->closeCursor();
+//Prepare the request, to select only one line correspond to the nickname
 $req = $bdd->prepare('SELECT * FROM authentification WHERE nickname = ?');
-$req->execute(array($nickname));
+$req->execute(array($goodNickname[0]));
 $list = $req->fetch();
+
+//Verify the password according to the nickname and hash
 if(password_verify($pass_hache, $list['password_auth']))
     {
+        $_SESSION['id_groupe'] = $list['id_groupe'];
+        $_SESSION['nickname'] = $list['nickname'];
         $req->closeCursor();
         header('location:accueil.php');
 
@@ -56,7 +60,7 @@ if(password_verify($pass_hache, $list['password_auth']))
 else
     {
         $req->closeCursor();
-        $_SESSION['errorMessage'] = "Bad Nickname or Password, please try again.";
+        $_SESSION['loginErrorMessage'] = "Bad Nickname or Password, please try again.";
         header('location:login_index.php');
         exit();
     }
