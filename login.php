@@ -28,7 +28,7 @@ $pass_hache = $_POST['password_first'];
 if(!preg_match("#^[a-zA-Z0-9]{3,}$#", $_POST['nickname']) === 0 )
     {
         
-        $_SESSION['loginloginErrorMessage'] = "Bad Nickname or Password, please try again.";
+        $_SESSION['loginErrorMessage'] = "Bad Nickname or Password, please try again.";
         header('location:login_index.php');
         exit();
     }
@@ -51,6 +51,7 @@ $list = $req->fetch();
 //Verify the password according to the nickname and hash
 if(password_verify($pass_hache, $list['password_auth']))
     {
+        $_SESSION['id_user'] = $list['id'];
         $_SESSION['id_groupe'] = $list['id_groupe'];
         $_SESSION['nickname'] = $list['nickname'];
         $req->closeCursor();

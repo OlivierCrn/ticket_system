@@ -6,6 +6,8 @@
     <title>Inscription CT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,7 +38,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link menu_nav_link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                aria-controls="pills-profile" aria-selected="false">Create a ticket</a>
+                aria-controls="pills-profile" aria-selected="false">Send a ticket</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
@@ -53,15 +55,15 @@
             <?php  } ?>
             <p> <?php if(date('G') < 12)
               {
-                echo("Good morning ".$_SESSION["nickname"]." welcome in the CRNO - Ticket system, you can create and consult your account's ticket.");
+                echo("Good morning ".$_SESSION["nickname"].", welcome in the CRNO - Ticket system. You can send and consult your account's ticket.");
               }
                if(date('G') < 18)
               {
-                echo("Good afternoon ".$_SESSION["nickname"]." welcome in the CRNO - Ticket system, you can create and consult your account's ticket.");
+                echo("Good afternoon ".$_SESSION["nickname"].", welcome in the CRNO - Ticket system. You can send and consult your account's ticket.");
               }  
               else
               {
-                echo("Good evening ".$_SESSION["nickname"]." welcome in the CRNO - Ticket system, you can create and consult your account's ticket.");                
+                echo("Good evening ".$_SESSION["nickname"].", welcome in the CRNO - Ticket system. You can send and consult your account's ticket.");                
               }
 ?>
         </div>
@@ -89,17 +91,29 @@
             </div>
           </div>
         </div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...
-                </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <?php
+            include('display_tickets.php')
+            ?>
+        </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            >
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() 
+        {
+            $('#tickets').DataTable();
+        } );
+        
         </script>
 </body>
 

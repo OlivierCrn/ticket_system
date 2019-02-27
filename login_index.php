@@ -1,8 +1,5 @@
 <?php
-
 session_start();
-$_SESSION['loginErrorMessage']= NULL; 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +22,7 @@ $_SESSION['loginErrorMessage']= NULL;
         <a class="nav-link" href="#">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ct/register_index.php">Register</a>
+        <a class="nav-link" href="register_index.php">Register</a>
       </li>
     </ul>
   </div>
@@ -33,9 +30,9 @@ $_SESSION['loginErrorMessage']= NULL;
 <div class="center">
     <div class="jumbotron">
         <?php
-        if(isset($_SESSION['errorMessage']))
+        if(isset($_SESSION['loginErrorMessage']))
         {?>
-            <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['errorMessage']; ?> </div>  
+            <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['loginErrorMessage']; ?> </div>  
 
     <?php  } ?> 
     

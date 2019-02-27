@@ -1,8 +1,5 @@
 <?php
-
 session_start(); 
-$_SESSION['errorMessage']= NULL; 
-
 ?>
 <!DOCTYPE html>
 <html>

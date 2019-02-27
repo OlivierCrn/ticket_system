@@ -17,14 +17,18 @@ catch(Exception $e)
 }
 
 //Prepare the request, to select only one line correspond to the nickname
-$req = $bdd->prepare('INSERT INTO tickets(id_ticket, id_nickname, subject, content) VALUES(:subject, :content)');
+$req = $bdd->prepare('INSERT INTO tickets(id_ticket, id_nickname, subject, content) VALUES(:id_ticket, :id_nickname, :subject, :content)');
         $req->execute(array(
+
+            'id_ticket' => '',
+
+            'id_nickname' => $_SESSION['id_user'],
             
             'subject' => $_POST['subject'],
             
             'content' => $_POST['content'],
             ));
-        $_SESSION['notification_message']="Ticket créé.";
+        $_SESSION['notification_message']="Ticket sent.";
         $req->closeCursor();
         header('location:accueil.php');
         exit();
