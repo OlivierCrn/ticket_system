@@ -3,7 +3,7 @@
 
             {
 
-            $bdd = new PDO('mysql:host=localhost;dbname=auth;charset=utf8', 'olivier', 'toor');
+            $bdd = new PDO('mysql:host=localhost;dbname=auth;charset=utf8', 'root', '');
 
             }
 

@@ -6,7 +6,7 @@ $_SESSION['loginErrorMessage'] = NULL;
 // Log in  the database.
 try
 {
-    $bdd = new PDO('mysql:host=localhost;dbname=auth;charset=utf8', 'olivier', 'toor', 
+    $bdd = new PDO('mysql:host=localhost;dbname=auth;charset=utf8', 'root', '', 
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
 catch(Exception $e)
@@ -17,10 +17,8 @@ catch(Exception $e)
 }
 
 //Prepare the request, to select only one line correspond to the nickname
-$req = $bdd->prepare('INSERT INTO tickets(id_ticket, id_nickname, subject, content) VALUES(:id_ticket, :id_nickname, :subject, :content)');
+$req = $bdd->prepare('INSERT INTO tickets(id_nickname, subject, content) VALUES(:id_nickname, :subject, :content)');
         $req->execute(array(
-
-            'id_ticket' => '',
 
             'id_nickname' => $_SESSION['id_user'],
             

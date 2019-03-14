@@ -34,7 +34,12 @@ session_start();
         {?>
             <div class="alert alert-danger" role="alert"> <?php echo $_SESSION['loginErrorMessage']; ?> </div>  
 
-    <?php  } ?> 
+    <?php  }
+        if(isset($_SESSION['notification_register_message']))
+        {?>
+          <div class="alert alert-sucess" role="alert"> <?php echo $_SESSION['notification_register_message']; ?> </div>  
+      <?php } ?>
+        
     
     </br>
 
