@@ -1,0 +1,70 @@
+.jumbotron
+{align-items: center;
+    background-color : c3cfe5;
+    border: solid 1px;
+    border-color: rgb(13, 7, 37);
+}
+
+.center {
+    display:flex;
+    padding: 150px 0;
+    justify-content: center;
+    
+    top : 10%;
+
+}
+
+.tab-content
+{
+   float:left;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	color: black;
+	background-color:rgb(218, 225, 238) ;
+}
+
+
+.justify-content-center {
+	-ms-flex-pack: center !important;
+    justify-content: center !important;
+    background-color: #C3CFE5;
+    border: solid 1px;
+    border-color: rgb(13, 7, 37);
+}
+
+a
+{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover 
+{
+    text-decoration: none;
+    color: none;
+}
+
+.navbar {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+    padding: .5rem 1rem;
+    border: solid 1px;
+    border-color: rgb(13, 7, 37);
+}
+
+.submit_issue
+{
+    display: flexbox;
+    padding: 150px 0;
+    justify-content: center;
+    align-items: center;
+    top : 10%;
+}
